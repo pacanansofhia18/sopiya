@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sofhia Kate Pacanan — BSIT Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- jQuery via CDN (loaded BEFORE script.js) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== VISITOR GREETING OVERLAY ===== -->
+  <div id="greeting-overlay">
+    <div id="greeting-box">
+      <div class="greeting-initials">SKP</div>
+      <p class="greeting-tagline">Welcome to my portfolio</p>
+      <p class="greeting-label">May I know your name?</p>
+      <input type="text" id="visitor-input" placeholder="Your name here..." />
+      <button id="greeting-btn">Enter ✦</button>
+    </div>
+  </div>
+
+  <!-- ===== DECORATIVE BLOBS ===== -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-brand">Sofhia<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="dark-mode-toggle" title="Toggle theme">◑</button>
+  </nav>
+
+  <!-- ===== ABOUT / HERO ===== -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-photo-wrap">
+        <div class="photo-frame">
+          <img src="assets/profile.svg" alt="Sofhia Kate Pacanan profile photo" class="profile-photo" />
+        </div>
+        <div class="photo-deco" aria-hidden="true"></div>
+      </div>
+      <div class="about-text">
+        <p class="hello-tag">Hello, <span id="visitor-name-display">lovely visitor</span> ✦</p>
+        <h1 class="hero-name">Sofhia Kate<br/><em>Pacanan</em></h1>
+        <p class="hero-title">BSIT Student · Aspiring Web Developer</p>
+        <p class="hero-bio">
+          I design and build clean, thoughtful web experiences with a love for detail and
+          beautiful interfaces. Passionate about turning ideas into elegant digital realities.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get in Touch</a>
+          <a href="#projects" class="btn-outline">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <div class="section-inner">
+      <h2 class="section-title">Education</h2>
+      <div class="edu-cards">
+        <div class="edu-card">
+          <span class="edu-year">2022 – Present</span>
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p class="edu-school">Mindanao State University — Iligan Institute of Technology</p>
+          <p class="edu-note">Web &amp; Mobile Development Track</p>
+        </div>
+        <div class="edu-card">
+          <span class="edu-year">2018 – 2022</span>
+          <h3>Senior High School — ICT Strand</h3>
+          <p class="edu-school">Cagayan de Oro City National High School</p>
+          <p class="edu-note">With High Honors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="section-inner">
+      <h2 class="section-title">Skills</h2>
+      <div class="skill-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+      </div>
+      <div id="skills-grid" class="skills-grid"></div>
+      <div class="skills-toggle-wrap">
+        <button id="skills-toggle-btn" class="btn-outline">View Certifications ✦</button>
+        <div id="certifications-panel" style="display:none;">
+          <ul class="cert-list">
+            <li>✦ Responsive Web Design — freeCodeCamp</li>
+            <li>✦ JavaScript Algorithms &amp; Data Structures — freeCodeCamp</li>
+            <li>✦ Introduction to UI/UX Design — Google Coursera</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="section-inner">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-search-wrap">
+        <input type="text" id="project-search" placeholder="✦ Search projects..." />
+      </div>
+      <div id="projects-grid" class="projects-grid"></div>
+      <p id="no-results" style="display:none;" class="no-results-msg">No projects found — try a different keyword.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-sub">Have a project or just want to say hi? I'd love to hear from you.</p>
+
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" placeholder="Your full name" />
+            <span class="err-msg" id="err-name"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="your@email.com" />
+            <span class="err-msg" id="err-email"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message <span class="req">*</span></label>
+          <textarea id="message" rows="5" placeholder="Tell me about your idea..."></textarea>
+          <span class="err-msg" id="err-message"></span>
+        </div>
+        <button type="submit" class="btn-primary" id="send-btn">Send Message ✦</button>
+        <div id="form-feedback" class="form-feedback"></div>
+      </form>
+
+      <table class="contact-table">
+        <caption>Find Me Here</caption>
+        <thead>
+          <tr><th>Platform</th><th>Handle</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GitHub</td><td><a href="#">@sofhiakate</a></td></tr>
+          <tr><td>LinkedIn</td><td><a href="#">/in/sofhiakate</a></td></tr>
+          <tr><td>Email</td><td><a href="mailto:sofhia@email.com">sofhia@email.com</a></td></tr>
+          <tr><td>Facebook</td><td><a href="#">Sofhia Kate Pacanan</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>crafted with care by <span class="footer-name">Sofhia Kate Pacanan</span> · BSIT · 2025</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
